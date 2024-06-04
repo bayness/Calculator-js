@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.calculator-frame {
+  height: auto;
+  width: 350px;
+  margin: auto;
+  margin-top: 100px;
+  border: 2px solid blue;  /* this border was made to prevent margin collapsing*/
+  background-color: orange;
+}
+
+.display {
+  width: auto;
+  height: auto;
+  /* margin-top: 20px; */
+  margin: 10px;
+  padding: 20px;
+  border: 3px solid black;
+  color: white;
+  font-size: 3em;
+}
+
+.buttons {
+  display: grid;
+  grid-template-areas:
+    "one two three plus"
+    "four five six minus" "seven eight nine times"
+    "dotes zero C-button division"
+    "equal equal equal equal";
+  gap: 10px;
+  padding: 10px;
+}
+
+.btn-calculator {
+  background-color: silver;
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2em;
+  border: 2px solid #000;
+  color: white;
+}
+
+.one {
+  grid-area: one;
+}
+
+.two {
+  grid-area: two;
+}
+
+.three {
+  grid-area: three;
+}
+
+.plus {
+  grid-area: plus;
+}
+
+.four {
+  grid-area: four;
+}
+
+.five {
+  grid-area: five;
+}
+
+.six {
+  grid-area: six;
+}
+
+.minus {
+  grid-area: minus;
+}
+
+.seven {
+  grid-area: seven;
+}
+
+.eight {
+  grid-area: eight;
+}
+
+.nine {
+  grid-area: nine;
+}
+
+.times {
+  grid-area: times;
+}
+
+.dotes {
+  grid-area: dotes;
+}
+
+.zero {
+  grid-area: zero;
+}
+
+.C-button {
+  grid-area: C-button;
+}
+.division {
+  grid-area: division;
+}
+
+.equal {
+  grid-area: equal;
+}
