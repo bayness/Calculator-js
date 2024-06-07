@@ -12,33 +12,32 @@
 
     <div class="calculator-frame" >   
 
-        <div class="display" id="dispaly" >0</div>
-
+<div class="display" type="'text"  id="display" >0</div>
 
         <div class="buttons" > 
 
     <button class="btn-calculator one" onclick="AppendNumber(1)">1</button>
     <button class="btn-calculator two" onclick="AppendNumber(2)">2</button>
-    <button class="btn-calculator three" onclick="">3</button>
-    <button class="btn-calculator plus" onclick="">+</button>
+    <button class="btn-calculator three" onclick="AppendNumber(3)">3</button>
+    <button class="btn-calculator plus" onclick="Operation('+')">+</button>
     <!-- first-row done  -->
-    <button class="btn-calculator four" onclick="">4</button>
-    <button class="btn-calculator five" onclick="">5</button>
-    <button class="btn-calculator six" onclick="">6</button>
-    <button class="btn-calculator minus" onclick="">-</button>
+    <button class="btn-calculator four" onclick="AppendNumber(4)">4</button>
+    <button class="btn-calculator five" onclick="AppendNumber(5)">5</button>
+    <button class="btn-calculator six" onclick="AppendNumber(6)">6</button>
+    <button class="btn-calculator minus" onclick="Operation('-')">-</button>
     <!-- second row done -->
-   <button class="btn-calculator seven" onclick="">7</button>
-    <button class="btn-calculator eight"  onclick="">8</button>
-    <button class="btn-calculator nine" onclick="">9</button>
-    <button class="btn-calculator star" onclick="">*</button>
+   <button class="btn-calculator seven" onclick="AppendNumber(7)">7</button>
+    <button class="btn-calculator eight"  onclick="AppendNumber(8)">8</button>
+    <button class="btn-calculator nine" onclick="AppendNumber(4)">9</button>
+    <button class="btn-calculator star" onclick="Operation('*')">*</button>
 
     <!-- third row done -->
     
-    <button class="btn-calculator dotes" onclick="">.</button>
+    <button class="btn-calculator dotes" onclick="()=>console.log('.')">.</button>
     <button class="btn-calculator zero" onclick="AppendNumber(0)">0</button>
-    <button class="btn-calculator C-button" onclick="AppendNumber(0)">C</button>
-    <button class="btn-calculator division" onclick="">/</button>
-    <button class="btn-calculator equal" onclick=""> = </button>
+    <button class="btn-calculator C-button" onclick="ClearButton()">C</button>
+    <button class="btn-calculator division" onclick="Operation('/')">/</button>
+    <button class="btn-calculator equal" onclick="CalculatorResult()"> = </button>
 
     
     
@@ -54,7 +53,7 @@
 
 </div>
     
-    <script src="Calcul.js"></script>
+    <script src="Calcul.js"></script>   
     
 </body>
 </html>
