@@ -1,57 +1,83 @@
-let display = document.getElementById('display');
+let display = document.getElementById("display");
 
-let firstNumber = '';
-let secondNumber = '';
+let firstNumber = "";
+let secondNumber = "";
 let currentNumber = 0;
-let operator = '';
+let operator = "";
+let reusltDisplayed = false;
 
-const  AppendNumber = (number) =>  {
-    currentNumber += number;
-     display.innerText = currentNumber;
-   
-}
+const AppendNumber = (number) => {
+  if (reusltDisplayed) {
+    currentNumber = number.toString();
+    reusltDisplayed = false;
+  } else {
+    currentNumber += number.toString();
+  }
+
+  display.innerText = currentNumber;
+
+  updateDisplay();
+};
 
 const Operation = (op) => {
-    if ( currentNumber ==='' && op !== '-' ) return;
-    if ( currentNumber !== '' && op === '')
-    return firstNumber = currentNumber;
-else if ( currentNumber !== '' && op) return CalculatorResult()
-firstNumber ='';
-secondNumber ='';
-currentNumber = 0;
-} 
+  if (currentNumber === "" && op !== "-") return;
+  if (operator === "") {
+    firstNumber = currentNumber;
+    operator = op;
+    currentNumber = "";
+  } else if (currentNumber !== "") {
+    CalculatorResult();
+    firstNumber = display.innerText;
+    operator = op.innerText;
+    currentNumber = 0;
+  }
 
-const  CalculatorResult = () => {
-  if (currentNumber === '' || firstNumber === '') return;
+  updateDisplay();
+};
+
+const CalculatorResult = () => {
+  if (currentNumber === "" || firstNumber === "") return;
   secondNumber = currentNumber;
 
   let result = 0;
 
   switch (operator) {
-
-    case '+' : result = parseFloat(firstNumber) + parseFloat(secondNumber); break;
-    case '-' : result = parseFloat(firstNumber) - parseFloat(secondNumber); break;
-    case '*' : result = parseFloat(firstNumber) * parseFloat(secondNumber); break;
-    case '/' : result = parseFloat(firstNumber) / parseFloat(secondNumber); break;
-
-
+    case "+":
+      result = parseFloat(firstNumber) + parseFloat(secondNumber);
+      break;
+    case "-":
+      result = parseFloat(firstNumber) - parseFloat(secondNumber);
+      break;
+    case "*":
+      result = parseFloat(firstNumber) * parseFloat(secondNumber);
+      break;
+    case "/":
+      result = parseFloat(firstNumber) / parseFloat(secondNumber);
+      break;
   }
 
-  display.innerText = result;
-  firstNumber ='';
-  secondNumber ='';
-  operator = '';
-  currentNumber = '';
-
-
-}
+  display.innerText = `${firstNumber} ${operator} ${secondNumber} = ${result}`;
+  currentNumber = result.toString();
+  firstNumber = "";
+  secondNumber = "";
+  operator = "";
+};
 
 const ClearButton = () => {
-    firstNumber ='';
-    secondNumber ='';
-    operator = '';
-    currentNumber = '';
-    display.innerText = '0';
+  firstNumber = "";
+  secondNumber = "";
+  operator = "";
+  currentNumber = "";
+  display.innerText = "0";
+  reusltDisplayed = true;
+};
 
-}
-
+const updateDisplay = () => {
+  if (operator && currentNumber === "") {
+    display.innerText = `${firstNumber} ${operator}`;
+  } else if (operator) {
+    display.innerText = `${firstNumber} ${operator} ${currentNumber}`;
+  } else {
+    display.innerText = currentNumber;
+  }
+};
